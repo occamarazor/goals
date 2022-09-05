@@ -3,10 +3,10 @@
     "es2021": true,
     "browser": true,
     "node": true,
-    "jest": true
+    "jest/globals": true
   },
   "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier"],
+  "plugins": ["jest", "prettier"],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
