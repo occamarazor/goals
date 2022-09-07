@@ -1,14 +1,16 @@
 {
   "name": "mern-crash",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server/index.js",
   "repository": "git@github.com:occamarazor/mern-crash.git",
   "author": "occamarazor <30173929+occamarazor@users.noreply.github.com>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "prepare": "husky install",
-    "lint": "eslint src/ --fix",
-    "format": "prettier src/ --write"
+    "lint": "eslint src/ --fix --max-warnings=1",
+    "format": "prettier src/ --write",
+    "start-server": "nodemon src/server/index.js"
   },
   "devDependencies": {
     "eslint": "8.22.0",
@@ -22,15 +24,20 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
+    "nodemon": "^2.0.19",
     "prettier": "2.7.1"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.4",
+    "react": "^18.2.0"
   },
   "lint-staged": {
     "src/**/*.js": [
-      "eslint --fix",
+      "eslint --fix --max-warnings=1",
       "prettier --write --ignore-unknown"
     ]
-  },
-  "dependencies": {
-    "react": "^18.2.0"
   }
 }
