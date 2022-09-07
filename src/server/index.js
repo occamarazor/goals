@@ -2,8 +2,11 @@ import { config } from 'dotenv';
 import express, { json, urlencoded } from 'express';
 import errorHandler from './middleware/error.js';
 import router from './routes/goals.js';
+import connectDB from './configs/db.js';
 
 config();
+connectDB();
+
 const PORT = process.env.port || 5000;
 const app = express();
 
