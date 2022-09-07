@@ -21,5 +21,12 @@
     "react",
     "jest"
   ],
-  "rules": {}
+  "rules": {
+    "import/extensions": [
+      "error",
+      {
+        "js": "ignorePackages"
+      }
+    ]
+  }
 }
