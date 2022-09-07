@@ -9,7 +9,13 @@ export const getGoals = (req, res) => {
 // @route POST /api/goals/
 // @access Private
 export const createGoal = (req, res) => {
-  res.status(201).json({ message: 'Create goal' });
+  const { text, duration } = req.body;
+
+  if (text && duration) {
+    res.status(201).json({ message: 'Create goal' });
+  } else {
+    res.status(400).json({ message: 'Please include both text & duration' });
+  }
 };
 
 // @desc Update goal
