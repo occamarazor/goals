@@ -14,10 +14,12 @@ export const createGoal = (req, res) => {
   if (text && duration) {
     res.status(201).json({ message: 'Create goal' });
   } else {
-    res.status(400).json({ message: 'Please include both text & duration' });
+    res.status(400);
+    throw new Error('Please include both text & duration');
   }
 };
 
+// TODO: error handling
 // @desc Update goal
 // @route PUT /api/goals/:id
 // @access Private
@@ -25,6 +27,7 @@ export const updateGoal = (req, res) => {
   res.status(200).json({ message: `Update goal: ${req.params.id}` });
 };
 
+// TODO: error handling
 // @desc Delete goal
 // @route DELETE /api/goals/:id
 // @access Private
