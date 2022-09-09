@@ -17,7 +17,10 @@ export const deleteGoals = asyncHandler(async (req, res) => {
 
   if (goals.length) {
     await GoalModel.deleteMany();
-    res.status(200).json({ message: `All goals deleted`, data: goals });
+    res.status(200).json({
+      message: `All goals deleted`,
+      data: goals,
+    });
   } else {
     res.status(400);
     throw new Error('No goals available');
@@ -32,7 +35,10 @@ export const createGoal = asyncHandler(async (req, res) => {
 
   if (text && duration) {
     const goal = await GoalModel.create({ text, duration });
-    res.status(201).json({ message: `Goal with ID: ${goal.id} created`, data: goal });
+    res.status(201).json({
+      message: `Goal with ID: ${goal.id} created`,
+      data: goal,
+    });
   } else {
     res.status(400);
     throw new Error('Please include both text & duration');
@@ -53,7 +59,10 @@ export const updateGoal = asyncHandler(async (req, res) => {
       { new: true },
     );
 
-    res.status(200).json({ message: `Goal with ID: ${req.params.id} updated`, data: updatedGoal });
+    res.status(200).json({
+      message: `Goal with ID: ${req.params.id} updated`,
+      data: updatedGoal,
+    });
   } else {
     res.status(400);
     throw new Error(`No goal with ID: ${req.params.id}`);
@@ -68,7 +77,10 @@ export const deleteGoal = asyncHandler(async (req, res) => {
 
   if (foundGoal) {
     await foundGoal.remove();
-    res.status(200).json({ message: `Goal with ID: ${req.params.id} deleted`, data: foundGoal });
+    res.status(200).json({
+      message: `Goal with ID: ${req.params.id} deleted`,
+      data: foundGoal,
+    });
   } else {
     res.status(400);
     throw new Error(`No goal with ID: ${req.params.id}`);
