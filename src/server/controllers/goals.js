@@ -1,16 +1,16 @@
 import asyncHandler from 'express-async-handler';
 import GoalModel from '../models/goal.js';
 
-// @desc Get goals
-// @route GET /api/goals/
+// @desc   Get goals
+// @route  GET /api/goals/
 // @access Private
 export const getGoals = asyncHandler(async (req, res) => {
   const goals = await GoalModel.find();
   res.status(200).json(goals);
 });
 
-// @desc Delete goals
-// @route DELETE /api/goals/
+// @desc   Delete goals
+// @route  DELETE /api/goals/
 // @access Private
 export const deleteGoals = asyncHandler(async (req, res) => {
   const goals = await GoalModel.find();
@@ -27,8 +27,8 @@ export const deleteGoals = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc Create goal
-// @route POST /api/goals/
+// @desc   Create goal
+// @route  POST /api/goals/
 // @access Private
 export const createGoal = asyncHandler(async (req, res) => {
   const { text, duration } = req.body;
@@ -45,8 +45,8 @@ export const createGoal = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc Update goal
-// @route PUT /api/goals/:id
+// @desc   Update goal
+// @route  PUT /api/goals/:id
 // @access Private
 export const updateGoal = asyncHandler(async (req, res) => {
   const foundGoal = await GoalModel.findById(req.params.id);
@@ -69,8 +69,8 @@ export const updateGoal = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc Delete goal
-// @route DELETE /api/goals/:id
+// @desc   Delete goal
+// @route  DELETE /api/goals/:id
 // @access Private
 export const deleteGoal = asyncHandler(async (req, res) => {
   const foundGoal = await GoalModel.findById(req.params.id);

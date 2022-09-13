@@ -3,8 +3,8 @@ import bcrypt from 'bcryptjs';
 import generateToken from '../configs/jwt.js';
 import UserModel from '../models/user.js';
 
-// @desc Create user
-// @route POST /api/users/
+// @desc   Create user
+// @route  POST /api/users/
 // @access Public
 export const createUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
@@ -33,8 +33,8 @@ export const createUser = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc Authenticate user
-// @route POST /api/users/login
+// @desc   Authenticate user
+// @route  POST /api/users/login
 // @access Public
 export const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -62,8 +62,8 @@ export const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc Get current user data
-// @route GET /api/users/current
+// @desc   Get current user data
+// @route  GET /api/users/current
 // @access Public
 export const getCurrentUser = asyncHandler(async (req, res) => {
   res.json({ message: 'Get Current User' });
