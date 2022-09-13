@@ -21,10 +21,16 @@ export const createUser = asyncHandler(async (req, res) => {
       const hashedPassword = await bcrypt.hash(password, passwordSalt);
 
       // Create user
-      const user = await UserModel.create({ name, email, password: hashedPassword });
+      const { _id, createdAt, updatedAt } = await UserModel.create({
+        name,
+        email,
+        password: hashedPassword,
+      });
+      const data = { _id, name, email, createdAt, updatedAt, token: generateToken(_id) };
+
       res.status(201).json({
-        message: `User with ID: ${user.id} created`,
-        data: { id: user.id, name, email, token: generateToken(user.id) },
+        message: `User with ID: ${_id} created`,
+        data,
       });
     }
   } else {
@@ -41,16 +47,21 @@ export const loginUser = asyncHandler(async (req, res) => {
 
   if (email && password) {
     const currentUser = await UserModel.findOne({ email });
+    const { _id, name, password: hashedPassword, createdAt, updatedAt } = currentUser;
 
-    if (currentUser && (await bcrypt.compare(password, currentUser.password))) {
+    if (currentUser && (await bcrypt.compare(password, hashedPassword))) {
+      const data = {
+        _id,
+        name,
+        email,
+        createdAt,
+        updatedAt,
+        token: generateToken(_id),
+      };
+
       res.status(200).json({
         message: `User with email: ${email} logged in`,
-        data: {
-          id: currentUser.id,
-          name: currentUser.name,
-          email,
-          token: generateToken(currentUser.id),
-        },
+        data,
       });
     } else {
       res.status(400);
