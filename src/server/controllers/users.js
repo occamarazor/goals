@@ -49,9 +49,10 @@ export const loginUser = asyncHandler(async (req, res) => {
 
   if (email && password) {
     const currentUser = await UserModel.findOne({ email });
-    const { _id, name, password: hashedPassword, createdAt, updatedAt } = currentUser;
 
-    if (currentUser && (await bcrypt.compare(password, hashedPassword))) {
+    if (currentUser && (await bcrypt.compare(password, currentUser.password))) {
+      const { _id, name, createdAt, updatedAt } = currentUser;
+
       const data = {
         _id,
         name,

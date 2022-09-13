@@ -1,32 +1,40 @@
 import asyncHandler from 'express-async-handler';
 import GoalModel from '../models/goal.js';
 
-const GOAL_MODEL_FILTER = 'id text duration createdAt updatedAt';
+const GOAL_MODEL_FILTER = 'id user text duration createdAt updatedAt';
 
 // @desc   Get goals
 // @route  GET /api/goals/
 // @access Private
 export const getGoals = asyncHandler(async (req, res) => {
-  const goals = await GoalModel.find().select(GOAL_MODEL_FILTER);
-  res.status(200).json(goals);
+  const goals = await GoalModel.find({ user: req.user }).select(GOAL_MODEL_FILTER);
+  if (goals.length) {
+    res.status(200).json({
+      message: `All goals for user: ${req.user.id}`,
+      data: goals,
+    });
+  } else {
+    res.status(404);
+    throw new Error(`No goals available for user: ${req.user.id}`);
+  }
 });
 
 // @desc   Delete goals
 // @route  DELETE /api/goals/
 // @access Private
 export const deleteGoals = asyncHandler(async (req, res) => {
-  const goals = await GoalModel.find().select(GOAL_MODEL_FILTER);
+  const goals = await GoalModel.find({ user: req.user }).select(GOAL_MODEL_FILTER);
 
   if (goals.length) {
-    await GoalModel.deleteMany();
+    await GoalModel.find({ user: req.user }).deleteMany();
 
     res.status(200).json({
-      message: 'All goals deleted',
+      message: `All goals deleted for user: ${req.user.id}`,
       data: goals,
     });
   } else {
-    res.status(400);
-    throw new Error('No goals available');
+    res.status(404);
+    throw new Error(`No goals available for user: ${req.user.id}`);
   }
 });
 
@@ -37,11 +45,11 @@ export const createGoal = asyncHandler(async (req, res) => {
   const { text, duration } = req.body;
 
   if (text && duration) {
-    const newGoal = await GoalModel.create({ text, duration });
-    const filteredGoal = await GoalModel.findOne({ id: newGoal.id }).select(GOAL_MODEL_FILTER);
+    const newGoal = await GoalModel.create({ user: req.user, text, duration });
+    const filteredGoal = await GoalModel.findById(newGoal.id).select(GOAL_MODEL_FILTER);
 
     res.status(201).json({
-      message: `Goal with ID: ${newGoal.id} created`,
+      message: `Goal with ID: ${newGoal.id} created for user: ${req.user.id}`,
       data: filteredGoal,
     });
   } else {
@@ -54,7 +62,7 @@ export const createGoal = asyncHandler(async (req, res) => {
 // @route  PUT /api/goals/:id
 // @access Private
 export const updateGoal = asyncHandler(async (req, res) => {
-  const foundGoal = await GoalModel.findById(req.params.id);
+  const foundGoal = await GoalModel.findOne({ _id: req.params.id, user: req.user });
 
   if (foundGoal) {
     const { text, duration } = req.body;
@@ -65,12 +73,12 @@ export const updateGoal = asyncHandler(async (req, res) => {
     ).select(GOAL_MODEL_FILTER);
 
     res.status(200).json({
-      message: `Goal with ID: ${req.params.id} updated`,
+      message: `Goal with ID: ${req.params.id} updated for user: ${req.user.id}`,
       data: updatedGoal,
     });
   } else {
-    res.status(400);
-    throw new Error(`Goal with ID: ${req.params.id} does not exist`);
+    res.status(404);
+    throw new Error(`Goal with ID: ${req.params.id} does not exist for user: ${req.user.id}`);
   }
 });
 
@@ -78,17 +86,19 @@ export const updateGoal = asyncHandler(async (req, res) => {
 // @route  DELETE /api/goals/:id
 // @access Private
 export const deleteGoal = asyncHandler(async (req, res) => {
-  const foundGoal = await GoalModel.findById(req.params.id).select(GOAL_MODEL_FILTER);
+  const foundGoal = await GoalModel.findOne({ _id: req.params.id, user: req.user }).select(
+    GOAL_MODEL_FILTER,
+  );
 
   if (foundGoal) {
     await foundGoal.remove();
 
     res.status(200).json({
-      message: `Goal with ID: ${req.params.id} deleted`,
+      message: `Goal with ID: ${req.params.id} deleted for user: ${req.user.id}`,
       data: foundGoal,
     });
   } else {
-    res.status(400);
-    throw new Error(`Goal with ID: ${req.params.id} does not exist`);
+    res.status(404);
+    throw new Error(`Goal with ID: ${req.params.id} does not exist for user: ${req.user.id}`);
   }
 });
