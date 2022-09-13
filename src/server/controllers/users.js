@@ -3,6 +3,8 @@ import bcrypt from 'bcryptjs';
 import generateToken from '../configs/jwt.js';
 import UserModel from '../models/user.js';
 
+const GOAL_MODEL_FILTER = 'id name email createdAt updatedAt';
+
 // @desc   Create user
 // @route  POST /api/users/
 // @access Public
@@ -77,5 +79,6 @@ export const loginUser = asyncHandler(async (req, res) => {
 // @route  GET /api/users/current
 // @access Private
 export const getCurrentUser = asyncHandler(async (req, res) => {
-  res.json({ message: 'Get Current User' });
+  const currentUser = await UserModel.findById(req.user.id).select(GOAL_MODEL_FILTER);
+  res.json(currentUser);
 });
