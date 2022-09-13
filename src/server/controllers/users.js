@@ -36,7 +36,24 @@ export const createUser = asyncHandler(async (req, res) => {
 // @route POST /api/users/login
 // @access Public
 export const loginUser = asyncHandler(async (req, res) => {
-  res.json({ message: 'Login User' });
+  const { email, password } = req.body;
+
+  if (email && password) {
+    const currentUser = await UserModel.findOne({ email });
+
+    if (currentUser && (await bcryptjs.compare(password, currentUser.password))) {
+      res.status(200).json({
+        message: `User with email: ${email} logged in`,
+        data: currentUser,
+      });
+    } else {
+      res.status(400);
+      throw new Error('Invalid user credentials');
+    }
+  } else {
+    res.status(400);
+    throw new Error('Please include both email & password');
+  }
 });
 
 // @desc Get current user data
