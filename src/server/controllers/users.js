@@ -1,5 +1,5 @@
 import asyncHandler from 'express-async-handler';
-import bcryptjs from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 import UserModel from '../models/user.js';
 
 // @desc Create user
@@ -16,11 +16,11 @@ export const createUser = asyncHandler(async (req, res) => {
       throw new Error(`User with email: ${email} already exists`);
     } else {
       // Hash password
-      const passwordSalt = await bcryptjs.genSalt(10);
-      const passwordHashed = await bcryptjs.hash(password, passwordSalt);
+      const passwordSalt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, passwordSalt);
 
       // Create user
-      const user = await UserModel.create({ name, email, password: passwordHashed });
+      const user = await UserModel.create({ name, email, password: hashedPassword });
       res.status(201).json({
         message: `User with ID: ${user.id} created`,
         data: user,
@@ -41,7 +41,7 @@ export const loginUser = asyncHandler(async (req, res) => {
   if (email && password) {
     const currentUser = await UserModel.findOne({ email });
 
-    if (currentUser && (await bcryptjs.compare(password, currentUser.password))) {
+    if (currentUser && (await bcrypt.compare(password, currentUser.password))) {
       res.status(200).json({
         message: `User with email: ${email} logged in`,
         data: currentUser,
