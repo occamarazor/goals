@@ -3,8 +3,8 @@ import { createUser, loginUser, getCurrentUser } from '../controllers/users.js';
 
 const usersRoutes = Router();
 
-usersRoutes.route('/').post(createUser);
-usersRoutes.route('/login').post(loginUser);
-usersRoutes.route('/current').get(getCurrentUser);
+usersRoutes.post('/', createUser);
+usersRoutes.post('/login', loginUser);
+usersRoutes.get('/current', getCurrentUser);
 
 export default usersRoutes;
