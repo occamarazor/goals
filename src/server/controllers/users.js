@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler';
 import bcrypt from 'bcryptjs';
+import generateToken from '../configs/jwt.js';
 import UserModel from '../models/user.js';
 
 // @desc Create user
@@ -23,7 +24,7 @@ export const createUser = asyncHandler(async (req, res) => {
       const user = await UserModel.create({ name, email, password: hashedPassword });
       res.status(201).json({
         message: `User with ID: ${user.id} created`,
-        data: user,
+        data: { id: user.id, name, email, token: generateToken(user.id) },
       });
     }
   } else {
@@ -44,7 +45,12 @@ export const loginUser = asyncHandler(async (req, res) => {
     if (currentUser && (await bcrypt.compare(password, currentUser.password))) {
       res.status(200).json({
         message: `User with email: ${email} logged in`,
-        data: currentUser,
+        data: {
+          id: currentUser.id,
+          name: currentUser.name,
+          email,
+          token: generateToken(currentUser.id),
+        },
       });
     } else {
       res.status(400);
