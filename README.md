@@ -4,42 +4,44 @@
 
 ## Runbook
 
+### Install project dependencies
+```
+yarn -i
+```
+
 ### Server
+#### Change directory to server
 ```
-cd src/server
-```
-
-#### Install project dependencies
-```
-yarn install
+cd server
 ```
 
-#### Set Environment Variables
+#### Install server dependencies
+```
+yarn -i
+```
+
+#### Set server environment variables
 ```
 mv .env.config .env
 ```
 
-#### Lint
+#### Lint & format server files
 ```
 yarn lint
 ```
 
-#### Prettify
-```
-yarn format
-```
-
-#### Run locally
+#### Run server locally
 ```
 yarn start
 ```
 
-#### Build for production
+#### Build server for production
 ```
 ...
 ```
 
 ### Client
+#### Change directory to client
 ```
-cd src/client
+cd client
 ```
