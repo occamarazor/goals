@@ -8,10 +8,16 @@ yarn-error.log*
 # Coverage directory
 coverage
 
-# Dependency directory
+# Dependency directories
 node_modules
 
-# dotenv environment variable files
+# Testing
+coverage
+
+# Production
+build
+
+# Environment variables
 .env
 
 # IDE
