@@ -17,7 +17,7 @@
   },
   "lint-staged": {
     "**/*.js": [
-      "eslint --fix  --max-warnings=4",
+      "eslint --fix  --max-warnings=0",
       "prettier --write --ignore-unknown"
     ]
   }
