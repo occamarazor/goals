@@ -37,7 +37,7 @@ yarn lint
 
 #### Test server
 ```
-yarn test
+...
 ```
 
 #### Run server locally
