@@ -41,7 +41,7 @@ export const createUser = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc   Authenticate user
+// @desc   Login user
 // @route  POST /api/users/login
 // @access Public
 export const loginUser = asyncHandler(async (req, res) => {
