@@ -25,9 +25,19 @@ yarn -i
 mv .env.config .env
 ```
 
-#### Lint & format server files
+#### Format server files
+```
+yarn format
+```
+
+#### Lint server files
 ```
 yarn lint
+```
+
+#### Test server
+```
+yarn test
 ```
 
 #### Run server locally
@@ -44,4 +54,39 @@ yarn start
 #### Change directory to client
 ```
 cd client
+```
+
+#### Install client dependencies
+```
+yarn -i
+```
+
+#### Set client environment variables
+```
+...
+```
+
+#### Format client files
+```
+yarn format
+```
+
+#### Lint client files
+```
+yarn lint
+```
+
+#### Test client
+```
+yarn test
+```
+
+#### Run client locally
+```
+yarn start
+```
+
+#### Build client for production
+```
+yarn build
 ```
