@@ -5,6 +5,7 @@
   "repository": "git@github.com:occamarazor/mern-crash.git",
   "author": "occamarazor <30173929+occamarazor@users.noreply.github.com>",
   "license": "MIT",
+  "private": true,
   "type": "module",
   "engines": {
     "node": ">=16.17.0 <18"
