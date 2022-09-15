@@ -27,7 +27,7 @@ yarn -i
 #### Set server environment variables
 
 ```
-mv .env.config .env
+cp .env.config .env
 ```
 
 #### Format server files
@@ -42,7 +42,7 @@ yarn format
 yarn lint
 ```
 
-#### Test server
+#### Test server files
 
 ```
 ...
@@ -92,7 +92,7 @@ yarn format
 yarn lint
 ```
 
-#### Test client
+#### Test client files
 
 ```
 yarn test
