@@ -1,6 +1,6 @@
-import AppHeader from './AppHeader';
-import AppMain from './AppMain';
-import AppFooter from './AppFooter';
+import AppHeader from 'components/application/AppHeader';
+import AppMain from 'components/application/AppMain';
+import AppFooter from 'components/application/AppFooter';
 
 const App = () => (
   <>
