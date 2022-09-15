@@ -1,5 +1,5 @@
-import AuthorizationPage from 'components/authorization/AuthorizationPage';
-import GoalsPage from 'components/goals/GoalsPage';
+import AuthorizationPage from 'features/authorization/AuthorizationPage';
+import GoalsPage from 'features/goals/GoalsPage';
 
 // TODO: guarded routing
 const AppMain = () => (

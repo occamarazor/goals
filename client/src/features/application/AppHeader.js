@@ -1,4 +1,4 @@
-import Navigation from 'components/navigation/Navigation';
+import Navigation from 'features/navigation/Navigation';
 
 const AppHeader = () => (
   <header>
