@@ -3,7 +3,7 @@ import GoalsPage from 'components/goals/GoalsPage';
 
 // TODO: guarded routing
 const AppMain = () => (
-  <main>
+  <main className='pt-[80px]'>
     <AuthorizationPage />
     <GoalsPage />
   </main>
