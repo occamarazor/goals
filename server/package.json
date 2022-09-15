@@ -1,8 +1,8 @@
 {
-  "name": "mern-crash-server",
+  "name": "goals-server",
   "version": "1.0.0",
   "main": "src/index.js",
-  "repository": "git@github.com:occamarazor/mern-crash.git",
+  "repository": "git@github.com:occamarazor/goals.git",
   "author": "occamarazor <30173929+occamarazor@users.noreply.github.com>",
   "license": "MIT",
   "private": true,
