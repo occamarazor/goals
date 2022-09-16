@@ -14,7 +14,7 @@ const Navigation = () => {
   const handleLogoutNavigate = useNavigateHandler(LOGOUT);
 
   return (
-    <div className='flex justify-center fixed w-screen h-[80px] z-10 bg-zinc-200 drop-shadow-lg'>
+    <nav className='flex justify-center fixed w-screen h-[80px] z-10 bg-zinc-200 drop-shadow-lg'>
       <div className='flex items-center w-full max-w-screen-2xl px-2'>
         <div className='flex-grow '>
           <button
@@ -44,7 +44,7 @@ const Navigation = () => {
           Sign out
         </button>
       </div>
-    </div>
+    </nav>
   );
 };
 

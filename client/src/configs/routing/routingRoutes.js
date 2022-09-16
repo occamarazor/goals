@@ -1,5 +1,4 @@
 import { lazy, Suspense } from 'react';
-import { createBrowserRouter } from 'react-router-dom';
 import {
   ROOT,
   LOGIN,
@@ -9,7 +8,7 @@ import {
   COUNTER,
   NO_MATCH,
 } from 'configs/routing/routingPaths';
-import App from 'features/application/App';
+import AppLayout from 'features/application/AppLayout';
 
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
@@ -17,10 +16,10 @@ const GoalsPage = lazy(() => import('pages/GoalsPage'));
 const CounterPage = lazy(() => import('pages/CounterPage'));
 const ErrorPage = lazy(() => import('pages/ErrorPage'));
 
-const router = createBrowserRouter([
+const routes = [
   {
     path: ROOT,
-    element: <App />,
+    element: <AppLayout />,
     children: [
       {
         index: true,
@@ -76,6 +75,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+];
 
-export default router;
+export default routes;
