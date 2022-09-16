@@ -1,11 +1,8 @@
-import AuthorizationPage from 'features/authorization/AuthorizationPage';
-import GoalsPage from 'features/goals/GoalsPage';
+import { Outlet } from 'react-router-dom';
 
-// TODO: guarded routing
 const AppMain = () => (
-  <main className='pt-[80px]'>
-    <AuthorizationPage />
-    <GoalsPage />
+  <main>
+    <Outlet />
   </main>
 );
 

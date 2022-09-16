@@ -1,14 +1,17 @@
 import AppHeader from 'features/application/AppHeader';
 import AppMain from 'features/application/AppMain';
 import AppFooter from 'features/application/AppFooter';
-import Counter from 'features/counter/Counter';
 
 const App = () => (
   <>
     <AppHeader />
-    <AppMain />
-    <AppFooter />
-    <Counter />
+
+    <div className='flex justify-center pt-[80px]'>
+      <div className='max-w-screen-2xl px-2 pt-20'>
+        <AppMain />
+        <AppFooter />
+      </div>
+    </div>
   </>
 );
 
