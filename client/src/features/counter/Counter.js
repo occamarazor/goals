@@ -10,6 +10,7 @@ import {
 } from 'features/counter/counterSlice';
 import styles from 'features/counter/Counter.module.css';
 
+// TODO: remove demo
 const Counter = () => {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();

@@ -1,51 +1,76 @@
 import { lazy, Suspense } from 'react';
-import { LOGIN, REGISTER, LOGOUT, GOALS, COUNTER, NO_MATCH } from 'configs/routing/routingPaths';
+import {
+  ROOT,
+  LOGIN,
+  REGISTER,
+  LOGOUT,
+  GOALS,
+  COUNTER,
+  NO_MATCH,
+} from 'configs/routing/routingPaths';
+import AuthenticationFormLoader from 'features/authentication/AuthenticationFormLoader';
 
-const LoginPage = lazy(() => import('pages/LoginPage'));
-const RegisterPage = lazy(() => import('pages/RegisterPage'));
-const GoalsPage = lazy(() => import('pages/GoalsPage'));
-const CounterPage = lazy(() => import('pages/CounterPage'));
-const ErrorPage = lazy(() => import('pages/ErrorPage'));
+const AuthenticationLayout = lazy(() => import('features/authentication/AuthenticationLayout'));
+const AuthenticationLoginForm = lazy(() =>
+  import('features/authentication/AuthenticationLoginForm'),
+);
+const AuthenticationRegisterForm = lazy(() =>
+  import('features/authentication/AuthenticationRegisterForm'),
+);
+const Goals = lazy(() => import('features/goals/Goals'));
+const Counter = lazy(() => import('features/counter/Counter'));
+const NotFoundError = lazy(() => import('features/error/NotFoundError'));
 
 const errorRoute = {
   path: NO_MATCH,
   element: (
     <Suspense fallback={<>...</>}>
-      <ErrorPage />
+      <NotFoundError />
     </Suspense>
   ),
 };
 
 export const publicRoutes = [
   {
-    index: true,
+    path: ROOT,
     element: (
       <Suspense fallback={<>...</>}>
-        <LoginPage />
+        <AuthenticationLayout />
       </Suspense>
     ),
-  },
-  {
-    path: LOGIN,
-    element: (
-      <Suspense fallback={<>...</>}>
-        <LoginPage />
-      </Suspense>
-    ),
-  },
-  {
-    path: REGISTER,
-    element: (
-      <Suspense fallback={<>...</>}>
-        <RegisterPage />
-      </Suspense>
-    ),
+
+    children: [
+      {
+        index: true,
+        element: (
+          <Suspense fallback={<AuthenticationFormLoader />}>
+            <AuthenticationLoginForm />
+          </Suspense>
+        ),
+      },
+      {
+        path: LOGIN,
+        element: (
+          <Suspense fallback={<AuthenticationFormLoader />}>
+            <AuthenticationLoginForm />
+          </Suspense>
+        ),
+      },
+      {
+        path: REGISTER,
+        element: (
+          <Suspense fallback={<AuthenticationFormLoader />}>
+            <AuthenticationRegisterForm />
+          </Suspense>
+        ),
+      },
+    ],
   },
   {
     path: COUNTER,
     element: (
       <Suspense fallback={<>...</>}>
-        <CounterPage />
+        <Counter />
       </Suspense>
     ),
   },
@@ -57,19 +82,19 @@ export const privateRoutes = [
     index: true,
     element: (
       <Suspense fallback={<>...</>}>
-        <GoalsPage />
+        <Goals />
       </Suspense>
     ),
   },
   {
     path: LOGOUT,
-    element: <>Logout</>,
+    element: <div className='pt-20'>Logout</div>,
   },
   {
     path: GOALS,
     element: (
       <Suspense fallback={<>...</>}>
-        <GoalsPage />
+        <Goals />
       </Suspense>
     ),
   },
