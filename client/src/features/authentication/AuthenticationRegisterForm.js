@@ -72,7 +72,7 @@ const AuthenticationRegisterForm = () => {
               </div>
 
               <input
-                type='password-two'
+                type='password'
                 name='password-two'
                 id='password-two'
                 placeholder='Confirm Password'
@@ -90,7 +90,7 @@ const AuthenticationRegisterForm = () => {
           <p className='mt-6 text-sm text-center text-gray-400'>
             Already have an account?{' '}
             <button
-              className='border-none bg-transparent text-black underline focus:outline-none focus:underline hover:underline dark:text-gray-300'
+              className='text-blue-500 focus:outline-none focus:underline hover:underline'
               onClick={handleLoginNavigate}
             >
               Sign in
