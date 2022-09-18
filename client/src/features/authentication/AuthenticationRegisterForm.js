@@ -1,10 +1,10 @@
-import { LOGIN } from 'configs/routing/routingPaths';
+import { ROOT } from 'configs/routing/routingPaths';
 import useNavigateHandler from 'features/navigation/navigationHooks';
 
 // TODO: decompose form
 /*  eslint-disable jsx-a11y/label-has-associated-control */
 const AuthenticationRegisterForm = () => {
-  const handleLoginNavigate = useNavigateHandler(LOGIN);
+  const handleRootNavigate = useNavigateHandler(ROOT);
 
   return (
     <div className='flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6'>
@@ -91,7 +91,7 @@ const AuthenticationRegisterForm = () => {
             Already have an account?{' '}
             <button
               className='border-none bg-transparent text-black focus:outline-none focus:underline hover:underline'
-              onClick={handleLoginNavigate}
+              onClick={handleRootNavigate}
             >
               Sign in
             </button>

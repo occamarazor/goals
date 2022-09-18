@@ -4,12 +4,11 @@ import {
   UserIcon,
   ArrowLeftOnRectangleIcon,
 } from '@heroicons/react/20/solid';
-import { ROOT, LOGIN, REGISTER, LOGOUT } from 'configs/routing/routingPaths';
+import { ROOT, REGISTER, LOGOUT } from 'configs/routing/routingPaths';
 import useNavigateHandler from 'features/navigation/navigationHooks';
 
 const Navigation = () => {
   const handleRootNavigate = useNavigateHandler(ROOT);
-  const handleLoginNavigate = useNavigateHandler(LOGIN);
   const handleRegisterNavigate = useNavigateHandler(REGISTER);
   const handleLogoutNavigate = useNavigateHandler(LOGOUT);
 
@@ -27,7 +26,7 @@ const Navigation = () => {
         </div>
         <button
           className='flex justify-between items-center mr-2 border-none bg-transparent text-black'
-          onClick={handleLoginNavigate}
+          onClick={handleRootNavigate}
         >
           <ArrowRightOnRectangleIcon className='w-5 mr-2' />
           Sign in

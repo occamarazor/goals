@@ -1,13 +1,5 @@
 import { lazy, Suspense } from 'react';
-import {
-  ROOT,
-  LOGIN,
-  REGISTER,
-  LOGOUT,
-  GOALS,
-  COUNTER,
-  NO_MATCH,
-} from 'configs/routing/routingPaths';
+import { ROOT, REGISTER, LOGOUT, COUNTER, NO_MATCH } from 'configs/routing/routingPaths';
 import AuthenticationFormLoader from 'features/authentication/AuthenticationFormLoader';
 
 const AuthenticationLayout = lazy(() => import('features/authentication/AuthenticationLayout'));
@@ -49,14 +41,6 @@ export const publicRoutes = [
         ),
       },
       {
-        path: LOGIN,
-        element: (
-          <Suspense fallback={<AuthenticationFormLoader />}>
-            <AuthenticationLoginForm />
-          </Suspense>
-        ),
-      },
-      {
         path: REGISTER,
         element: (
           <Suspense fallback={<AuthenticationFormLoader />}>
@@ -89,14 +73,6 @@ export const privateRoutes = [
   {
     path: LOGOUT,
     element: <div className='pt-20'>Logout</div>,
-  },
-  {
-    path: GOALS,
-    element: (
-      <Suspense fallback={<>...</>}>
-        <Goals />
-      </Suspense>
-    ),
   },
   errorRoute,
 ];
