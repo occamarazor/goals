@@ -90,7 +90,7 @@ const AuthenticationRegisterForm = () => {
           <p className='mt-6 text-sm text-center text-gray-400'>
             Already have an account?{' '}
             <button
-              className='border-none bg-transparent text-black focus:outline-none focus:underline hover:underline'
+              className='border-none bg-transparent text-black underline focus:outline-none focus:underline hover:underline dark:text-gray-300'
               onClick={handleLoginNavigate}
             >
               Sign in
