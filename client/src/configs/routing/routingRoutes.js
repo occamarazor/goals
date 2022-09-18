@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react';
+import { Navigate } from 'react-router-dom';
 import {
   ROOT,
   LOGIN,
@@ -8,6 +9,7 @@ import {
   COUNTER,
   NO_MATCH,
 } from 'configs/routing/routingPaths';
+import AppLoader from 'features/application/AppLoader';
 import AuthenticationFormLoader from 'features/authentication/AuthenticationFormLoader';
 
 const AuthenticationLayout = lazy(() => import('features/authentication/AuthenticationLayout'));
@@ -17,6 +19,7 @@ const AuthenticationLoginForm = lazy(() =>
 const AuthenticationRegisterForm = lazy(() =>
   import('features/authentication/AuthenticationRegisterForm'),
 );
+const GoalsLayout = lazy(() => import('features/goals/GoalsLayout'));
 const Goals = lazy(() => import('features/goals/Goals'));
 const Counter = lazy(() => import('features/counter/Counter'));
 const NotFoundError = lazy(() => import('features/error/NotFoundError'));
@@ -34,17 +37,18 @@ export const publicRoutes = [
   {
     path: ROOT,
     element: (
-      <Suspense fallback={<>...</>}>
+      <Suspense fallback={<AppLoader />}>
         <AuthenticationLayout />
       </Suspense>
     ),
-
     children: [
       {
         index: true,
         element: (
           <Suspense fallback={<AuthenticationFormLoader />}>
-            <AuthenticationLoginForm />
+            <div className='flex justify-center lg:w-2/6'>
+              <Navigate to={LOGIN} replace />
+            </div>
           </Suspense>
         ),
       },
@@ -69,7 +73,7 @@ export const publicRoutes = [
   {
     path: COUNTER,
     element: (
-      <Suspense fallback={<>...</>}>
+      <Suspense fallback={<AppLoader />}>
         <Counter />
       </Suspense>
     ),
@@ -79,24 +83,34 @@ export const publicRoutes = [
 
 export const privateRoutes = [
   {
-    index: true,
+    path: ROOT,
     element: (
-      <Suspense fallback={<>...</>}>
-        <Goals />
+      <Suspense fallback={<AppLoader />}>
+        <GoalsLayout />
       </Suspense>
     ),
+    children: [
+      {
+        index: true,
+        element: (
+          <Suspense fallback={<AppLoader />}>
+            <Navigate to={GOALS} replace />
+          </Suspense>
+        ),
+      },
+      {
+        path: GOALS,
+        element: (
+          <Suspense fallback={<AppLoader />}>
+            <Goals />
+          </Suspense>
+        ),
+      },
+    ],
   },
   {
     path: LOGOUT,
-    element: <div className='pt-20'>Logout</div>,
-  },
-  {
-    path: GOALS,
-    element: (
-      <Suspense fallback={<>...</>}>
-        <Goals />
-      </Suspense>
-    ),
+    element: <div className='pt-[80px]'>Logout</div>,
   },
   errorRoute,
 ];
