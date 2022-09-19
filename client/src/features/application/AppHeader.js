@@ -1,8 +1,8 @@
-import Navigation from 'features/navigation/Navigation';
+import NavigationLayout from 'features/navigation/NavigationLayout';
 
 const AppHeader = () => (
   <header>
-    <Navigation />
+    <NavigationLayout />
   </header>
 );
 

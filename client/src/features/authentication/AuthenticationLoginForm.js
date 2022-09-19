@@ -1,10 +1,10 @@
 import { REGISTER } from 'configs/routing/routingPaths';
-import useNavigateHandler from 'features/navigation/navigationHooks';
+import { useNavigationHandler } from 'features/navigation/navigationHooks';
 
 // TODO: decompose
 /*  eslint-disable jsx-a11y/label-has-associated-control */
 const AuthenticationLoginForm = () => {
-  const handleRegisterNavigate = useNavigateHandler(REGISTER);
+  const handleRegisterNavigate = useNavigationHandler(REGISTER);
 
   return (
     <div className='flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6'>
