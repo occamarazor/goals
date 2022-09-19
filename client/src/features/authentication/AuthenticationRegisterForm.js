@@ -1,7 +1,7 @@
 import { LOGIN } from 'configs/routing/routingPaths';
 import useNavigateHandler from 'features/navigation/navigationHooks';
 
-// TODO: decompose form
+// TODO: decompose
 /*  eslint-disable jsx-a11y/label-has-associated-control */
 const AuthenticationRegisterForm = () => {
   const handleLoginNavigate = useNavigateHandler(LOGIN);
