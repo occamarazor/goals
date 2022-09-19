@@ -1,14 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Navigate } from 'react-router-dom';
-import {
-  ROOT,
-  LOGIN,
-  REGISTER,
-  LOGOUT,
-  GOALS,
-  COUNTER,
-  NO_MATCH,
-} from 'configs/routing/routingPaths';
+import { ROOT, LOGIN, REGISTER, GOALS, COUNTER, NO_MATCH } from 'configs/routing/routingPaths';
 import AppLoader from 'features/application/AppLoader';
 import AuthenticationFormLoader from 'features/authentication/AuthenticationFormLoader';
 
@@ -107,10 +99,6 @@ export const privateRoutes = [
         ),
       },
     ],
-  },
-  {
-    path: LOGOUT,
-    element: <div className='pt-[80px]'>Logout</div>,
   },
   errorRoute,
 ];

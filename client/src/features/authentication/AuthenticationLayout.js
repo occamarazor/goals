@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 const AuthenticationLayout = () => (
   <div className='bg-white dark:bg-gray-900'>
-    <div className='flex justify-center h-screen pt-[80px]'>
+    <div className='flex justify-center h-screen pt-[64px] lg:pt-[68px]'>
       <div className='hidden bg-[url("assets/background.jpg")] bg-cover lg:block lg:w-2/3'>
         <div className='flex items-center h-full px-20 bg-gray-900 bg-opacity-40'>
           <div>

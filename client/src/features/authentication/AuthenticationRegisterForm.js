@@ -81,7 +81,10 @@ const AuthenticationRegisterForm = () => {
             </div>
 
             <div className='mt-6'>
-              <button className='w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'>
+              <button
+                type='button'
+                className='w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50'
+              >
                 Sign up
               </button>
             </div>
@@ -90,6 +93,7 @@ const AuthenticationRegisterForm = () => {
           <p className='mt-6 text-sm text-center text-gray-400'>
             Already have an account?{' '}
             <button
+              type='button'
               className='text-blue-500 focus:outline-none focus:underline hover:underline'
               onClick={handleLoginNavigate}
             >
