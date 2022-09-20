@@ -8,7 +8,7 @@ const AuthenticationLayout = lazy(() => import('features/authentication/Authenti
 const AuthenticationLogin = lazy(() => import('pages/AuthenticationLogin'));
 const AuthenticationRegister = lazy(() => import('pages/AuthenticationRegister'));
 const GoalsLayout = lazy(() => import('features/goals/GoalsLayout'));
-const Goals = lazy(() => import('features/goals/Goals'));
+const GoalsPage = lazy(() => import('pages/GoalsPage'));
 const Counter = lazy(() => import('features/counter/Counter'));
 const NotFoundError = lazy(() => import('features/error/NotFoundError'));
 
@@ -90,7 +90,7 @@ export const privateRoutes = [
         path: GOALS,
         element: (
           <Suspense fallback={<AppLoader />}>
-            <Goals />
+            <GoalsPage />
           </Suspense>
         ),
       },

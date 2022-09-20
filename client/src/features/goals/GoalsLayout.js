@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import GoalsInfo from 'features/goals/GoalsInfo';
 
 const GoalsLayout = () => (
-  <div className='pt-[64px] lg:pt-[68px]'>
-    <GoalsInfo />
-    <Outlet />
+  <div className='bg-white dark:bg-gray-900'>
+    <div className='flex justify-center h-screen pt-[64px] lg:pt-[68px]'>
+      <Outlet />
+    </div>
   </div>
 );
 
