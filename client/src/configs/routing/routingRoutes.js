@@ -19,7 +19,7 @@ const NotFoundError = lazy(() => import('features/error/NotFoundError'));
 const errorRoute = {
   path: NO_MATCH,
   element: (
-    <Suspense fallback={<>...</>}>
+    <Suspense fallback={<AppLoader />}>
       <NotFoundError />
     </Suspense>
   ),
