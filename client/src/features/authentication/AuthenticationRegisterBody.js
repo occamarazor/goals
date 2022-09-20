@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import FormField from 'features/forms/FormField';
 import FormButton from 'features/forms/FormButton';
 
-const AuthenticationRegisterFormBody = () => {
+const AuthenticationRegisterBody = () => {
   const handleRegisterFormSubmit = useCallback(() => {
     console.log('Submit register form');
   }, []);
@@ -23,4 +23,4 @@ const AuthenticationRegisterFormBody = () => {
   );
 };
 
-export default AuthenticationRegisterFormBody;
+export default AuthenticationRegisterBody;

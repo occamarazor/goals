@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import FormField from 'features/forms/FormField';
 import FormButton from 'features/forms/FormButton';
 
-const AuthenticationLoginFormBody = () => {
+const AuthenticationLoginBody = () => {
   const handleLoginFormSubmit = useCallback(() => {
     console.log('Submit login form');
   }, []);
@@ -16,4 +16,4 @@ const AuthenticationLoginFormBody = () => {
   );
 };
 
-export default AuthenticationLoginFormBody;
+export default AuthenticationLoginBody;

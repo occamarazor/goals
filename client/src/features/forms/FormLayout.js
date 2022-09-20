@@ -1,4 +1,4 @@
-const Form = ({ header, body, footer }) => (
+const FormLayout = ({ header, body, footer }) => (
   <div className='flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6'>
     <div className='flex-1'>
       {header}
@@ -10,4 +10,4 @@ const Form = ({ header, body, footer }) => (
   </div>
 );
 
-export default Form;
+export default FormLayout;
