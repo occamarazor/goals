@@ -27,7 +27,7 @@ yarn -i
 #### Set server environment variables
 
 ```
-cp .env.config .env
+cp .env.develop .env
 ```
 
 #### Format server files
@@ -77,7 +77,7 @@ yarn -i
 #### Set client environment variables
 
 ```
-...
+cp .env.develop .env
 ```
 
 #### Format client files

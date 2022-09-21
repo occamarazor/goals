@@ -10,7 +10,7 @@
     "prepare": "husky install",
     "client": "yarn --cwd client start",
     "server": "yarn --cwd server start",
-    "dev": "yarn client & yarn server"
+    "start": "yarn client & yarn server"
   },
   "devDependencies": {
     "eslint": "8.2.0",
