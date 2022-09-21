@@ -1,13 +1,13 @@
 // import { useState, useCallback } from 'react';
 import { useRoutes } from 'react-router-dom';
 // import { publicRoutes, privateRoutes } from 'configs/routing/routingRoutes';
-import { privateRoutes } from 'configs/routing/routingRoutes';
+import { publicRoutes } from 'configs/routing/routingRoutes';
 
 // TODO: Authentication
 const AppMain = () => {
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
   // const routes = isAuthenticated ? privateRoutes : publicRoutes;
-  const element = useRoutes(privateRoutes);
+  const element = useRoutes(publicRoutes);
 
   // const handleAuthToggle = useCallback(() => {
   //   setIsAuthenticated(!isAuthenticated);
