@@ -2,8 +2,9 @@ import { useCallback } from 'react';
 import FormField from 'features/forms/FormField';
 import FormButton from 'features/forms/FormButton';
 
-// TODO: submit goals
-// TODO: goal mode
+// TODO: submit goal
+// TODO: goal mode: title
+// TODO: goal mode: handler
 const GoalsBody = () => {
   const handleGoalsFormSubmit = useCallback(() => {
     console.log('Submit goals form');
