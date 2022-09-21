@@ -3,7 +3,7 @@ import { useRoutes } from 'react-router-dom';
 // import { publicRoutes, privateRoutes } from 'configs/routing/routingRoutes';
 import { privateRoutes } from 'configs/routing/routingRoutes';
 
-// TODO: auth
+// TODO: Authentication
 const AppMain = () => {
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
   // const routes = isAuthenticated ? privateRoutes : publicRoutes;
