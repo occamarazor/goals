@@ -1,11 +1,9 @@
 import { Outlet } from 'react-router-dom';
 
 const GoalsLayout = () => (
-  <div className='bg-white dark:bg-gray-900'>
-    <div className='pt-[64px] lg:pt-[68px]'>
-      <div className='flex flex-col justify-center lg:flex-row'>
-        <Outlet />
-      </div>
+  <div className='bg-white min-h-screen pt-[64px] lg:pt-[68px] dark:bg-gray-900 '>
+    <div className='flex flex-col items-start justify-center py-10 lg:flex-row'>
+      <Outlet />
     </div>
   </div>
 );
