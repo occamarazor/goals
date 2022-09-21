@@ -1,9 +1,13 @@
 import { useState, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+import { submitLogin } from 'features/authentication/authenticationSlice';
 import FormField from 'features/forms/FormField';
 import FormButton from 'features/forms/FormButton';
 
 // TODO: login
 const AuthenticationLoginBody = () => {
+  const dispatch = useDispatch();
+
   const [loginForm, setLoginForm] = useState({
     email: '',
     password: '',
@@ -20,8 +24,8 @@ const AuthenticationLoginBody = () => {
   );
 
   const handleLoginFormSubmit = useCallback(() => {
-    console.log(loginForm);
-  }, [loginForm]);
+    dispatch(submitLogin(loginForm));
+  }, [dispatch, loginForm]);
 
   return (
     <>
