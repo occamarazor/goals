@@ -1,47 +1,28 @@
-import { useState, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import useForm from 'features/forms/formHooks';
 import FormField from 'features/forms/FormField';
 import FormButton from 'features/forms/FormButton';
+import { loginFormConfig, loginFormState } from 'features/authentication/authenticationConstants';
 import { submitLogin } from 'features/authentication/authenticationSlice';
 
 const AuthenticationLoginBody = () => {
-  const dispatch = useDispatch();
-
-  const [loginForm, setLoginForm] = useState({
-    email: '',
-    password: '',
-  });
-
-  const { email, password } = loginForm;
-
-  const handleLoginFieldChange = useCallback(
-    (event) => {
-      const { id, value } = event.target;
-      setLoginForm({ ...loginForm, [id]: value });
-    },
-    [loginForm],
+  const [loginForm, loginFieldChangeHandler, loginFormSubmitHandler] = useForm(
+    loginFormState,
+    submitLogin,
   );
-
-  const handleLoginFormSubmit = useCallback(() => {
-    dispatch(submitLogin(loginForm));
-  }, [dispatch, loginForm]);
 
   return (
     <>
-      <FormField
-        id='email'
-        placeholder='example@example.com'
-        first
-        value={email}
-        changeHandler={handleLoginFieldChange}
-      />
-      <FormField
-        id='password'
-        placeholder='Your password'
-        value={password}
-        changeHandler={handleLoginFieldChange}
-      />
-      <FormButton title='Sign in' submitHandler={handleLoginFormSubmit} />
+      {loginFormConfig.map(({ id, placeholder }) => (
+        <FormField
+          key={id}
+          id={id}
+          placeholder={placeholder}
+          value={loginForm[id]}
+          changeHandler={loginFieldChangeHandler}
+        />
+      ))}
+
+      <FormButton title='Sign in' submitHandler={loginFormSubmitHandler} />
     </>
   );
 };

@@ -1,6 +1,6 @@
 /*  eslint-disable jsx-a11y/label-has-associated-control */
-const FormField = ({ id, placeholder, type, label, first, value, changeHandler }) => (
-  <div className={first ? '' : 'mt-6'}>
+const FormField = ({ id, placeholder, type, label, value, changeHandler }) => (
+  <div className='mt-6'>
     <label htmlFor={id} className='block mb-2 text-sm text-gray-600 dark:text-gray-200'>
       {label || `${id[0].toUpperCase()}${id.slice(1)}`}
     </label>
