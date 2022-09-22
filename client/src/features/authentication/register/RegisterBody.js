@@ -3,7 +3,7 @@ import FormField from 'features/form/FormField';
 import FormButton from 'features/form/FormButton';
 
 // TODO: register
-const AuthenticationRegisterBody = () => {
+const RegisterBody = () => {
   const handleRegisterFormSubmit = useCallback(() => {
     console.log('Submit register form');
   }, []);
@@ -24,4 +24,4 @@ const AuthenticationRegisterBody = () => {
   );
 };
 
-export default AuthenticationRegisterBody;
+export default RegisterBody;

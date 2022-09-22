@@ -6,7 +6,7 @@ import AuthenticationLoader from 'features/authentication/AuthenticationLoader';
 
 const AuthenticationLayout = lazy(() => import('features/authentication/AuthenticationLayout'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
-const AuthenticationRegister = lazy(() => import('pages/AuthenticationRegister'));
+const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const GoalsLayout = lazy(() => import('features/goals/GoalsLayout'));
 const GoalsPage = lazy(() => import('pages/GoalsPage'));
 const Counter = lazy(() => import('features/counter/Counter'));
@@ -52,7 +52,7 @@ export const publicRoutes = [
         path: REGISTER,
         element: (
           <Suspense fallback={<AuthenticationLoader />}>
-            <AuthenticationRegister />
+            <RegisterPage />
           </Suspense>
         ),
       },
