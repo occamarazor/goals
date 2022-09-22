@@ -3,10 +3,10 @@ import AppMain from 'features/application/AppMain';
 
 // TODO:
 //  0. Error boundaries
-//  1. Authentication
-//  2. Notifications
-//  3. FormLayout validation
-//  4. Unit testing
+//  1. Notifications
+//  2. FormLayout validation
+//  3. Unit testing
+//  4. Authentication provider?
 //  5. Animation
 const App = () => (
   <>
