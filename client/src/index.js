@@ -1,9 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import reportWebVitals from 'reportWebVitals';
 import store from 'store';
+import history from 'configs/routing/routingHistory';
 import App from 'features/application/App';
 import 'index.css';
 
@@ -13,9 +14,9 @@ const root = createRoot(container);
 root.render(
   <StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <HistoryRouter history={history}>
         <App />
-      </BrowserRouter>
+      </HistoryRouter>
     </Provider>
   </StrictMode>,
 );

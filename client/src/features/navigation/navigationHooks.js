@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
-import { selectNavigation, setMenuOpen } from 'features/navigation/navigationSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { selectNavigation, setMenuOpen } from 'features/navigation/navigationSlice';
 
 export const useNavigationHandler = (url) => {
   const navigate = useNavigate();

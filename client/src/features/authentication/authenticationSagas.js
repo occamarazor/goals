@@ -1,4 +1,6 @@
 import { call, put, takeLatest, fork } from 'redux-saga/effects';
+import { GOALS } from 'configs/routing/routingPaths';
+import historyReplace from 'configs/routing/routingHelpers';
 import {
   submitLogin,
   submitLoginSuccess,
@@ -12,6 +14,11 @@ export function* authenticationSubmitLoginWorker({ payload }) {
       data: { data, message },
     } = yield call(authenticationSubmitLoginApi, payload);
     yield put(submitLoginSuccess(data));
+
+    yield call(historyReplace, {
+      pathname: GOALS,
+    });
+
     // TODO: success notification
     console.log('message:', message);
   } catch ({ message, response }) {

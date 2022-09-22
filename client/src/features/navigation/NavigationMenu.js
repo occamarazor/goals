@@ -1,22 +1,27 @@
-import { ROOT } from 'configs/routing/routingPaths';
 import { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import user from 'assets/user.png';
+import { LOGIN } from 'configs/routing/routingPaths';
+import { submitLogout } from 'features/authentication/authenticationSlice';
 import { useNavigationHandler, useNavigationMenu } from 'features/navigation/navigationHooks';
 
 const NavigationMenu = () => {
+  const dispatch = useDispatch();
   const [menuOpen, handleSetMenuOpen] = useNavigationMenu();
-  const handleRootNavigate = useNavigationHandler(ROOT);
+  const handleLoginNavigate = useNavigationHandler(LOGIN);
   const handleMenuClose = handleSetMenuOpen(false);
 
   const menuAnimationClasses = menuOpen
     ? 'translate-x-0 opacity-100'
     : '-translate-x-full opacity-0 ';
 
-  // TODO: logout
   const handleLogout = useCallback(() => {
-    handleMenuClose();
-    handleRootNavigate();
-  }, [handleMenuClose, handleRootNavigate]);
+    if (menuOpen) {
+      handleMenuClose();
+    }
+    dispatch(submitLogout());
+    handleLoginNavigate();
+  }, [dispatch, menuOpen, handleMenuClose, handleLoginNavigate]);
 
   return (
     <div

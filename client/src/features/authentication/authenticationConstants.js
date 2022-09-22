@@ -1,4 +1,5 @@
-const AUTHENTICATION_URL = 'users/';
-const AUTHENTICATION_LOGIN_URL = `${AUTHENTICATION_URL}login/`;
+export const AUTHENTICATION_STORAGE_KEY = 'user';
 
-export default AUTHENTICATION_LOGIN_URL;
+const AUTHENTICATION_URL = 'users/';
+
+export const AUTHENTICATION_LOGIN_URL = `${AUTHENTICATION_URL}login/`;

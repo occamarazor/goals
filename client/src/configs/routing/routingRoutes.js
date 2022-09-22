@@ -96,5 +96,13 @@ export const privateRoutes = [
       },
     ],
   },
+  {
+    path: COUNTER,
+    element: (
+      <Suspense fallback={<AppLoader />}>
+        <Counter />
+      </Suspense>
+    ),
+  },
   errorRoute,
 ];

@@ -1,10 +1,9 @@
 import { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { submitLogin } from 'features/authentication/authenticationSlice';
 import FormField from 'features/forms/FormField';
 import FormButton from 'features/forms/FormButton';
+import { submitLogin } from 'features/authentication/authenticationSlice';
 
-// TODO: login
 const AuthenticationLoginBody = () => {
   const dispatch = useDispatch();
 
