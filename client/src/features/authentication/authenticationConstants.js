@@ -1,4 +1,4 @@
-import formConfigToState from 'features/forms/formHelpers';
+import formConfigToState from 'features/form/formHelpers';
 
 export const AUTHENTICATION_STORAGE_KEY = 'user';
 

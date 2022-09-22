@@ -1,4 +1,4 @@
-import FormHeader from 'features/forms/FormHeader';
+import FormHeader from 'features/form/FormHeader';
 
 // TODO: username
 // TODO: goal mode: title

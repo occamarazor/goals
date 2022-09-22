@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
-import FormField from 'features/forms/FormField';
-import FormButton from 'features/forms/FormButton';
+import FormField from 'features/form/FormField';
+import FormButton from 'features/form/FormButton';
 
 // TODO: register
 const AuthenticationRegisterBody = () => {

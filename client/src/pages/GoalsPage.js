@@ -1,4 +1,4 @@
-import FormLayout from 'features/forms/FormLayout';
+import FormLayout from 'features/form/FormLayout';
 import GoalsHeader from 'features/goals/GoalsHeader';
 import GoalsBody from 'features/goals/GoalsBody';
 import GoalsList from 'features/goals/GoalsList';

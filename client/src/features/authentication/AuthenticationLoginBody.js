@@ -1,6 +1,6 @@
-import useForm from 'features/forms/formHooks';
-import FormField from 'features/forms/FormField';
-import FormButton from 'features/forms/FormButton';
+import useForm from 'features/form/formHooks';
+import FormField from 'features/form/FormField';
+import FormButton from 'features/form/FormButton';
 import { loginFormConfig, loginFormState } from 'features/authentication/authenticationConstants';
 import { submitLogin } from 'features/authentication/authenticationSlice';
 

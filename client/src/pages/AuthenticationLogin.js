@@ -1,4 +1,4 @@
-import FormLayout from 'features/forms/FormLayout';
+import FormLayout from 'features/form/FormLayout';
 import AuthenticationLoginHeader from 'features/authentication/AuthenticationLoginHeader';
 import AuthenticationLoginBody from 'features/authentication/AuthenticationLoginBody';
 import AuthenticationLoginFooter from 'features/authentication/AuthenticationLoginFooter';

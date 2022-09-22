@@ -1,4 +1,4 @@
-import FormLayout from 'features/forms/FormLayout';
+import FormLayout from 'features/form/FormLayout';
 import AuthenticationRegisterHeader from 'features/authentication/AuthenticationRegisterHeader';
 import AuthenticationRegisterBody from 'features/authentication/AuthenticationRegisterBody';
 import AuthenticationRegisterFooter from 'features/authentication/AuthenticationRegisterFooter';

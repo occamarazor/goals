@@ -1,6 +1,6 @@
 import { LOGIN } from 'configs/routing/routingPaths';
 import { useNavigationHandler } from 'features/navigation/navigationHooks';
-import FormFooter from 'features/forms/FormFooter';
+import FormFooter from 'features/form/FormFooter';
 
 const AuthenticationRegisterFooter = () => {
   const handleLoginNavigate = useNavigationHandler(LOGIN);
