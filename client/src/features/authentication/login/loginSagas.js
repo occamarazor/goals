@@ -15,7 +15,6 @@ export function* loginSubmitWorker({ payload }) {
     } = yield call(loginSubmitApi, payload);
 
     yield put(loginSubmitSuccess(data));
-
     yield call(historyReplace, {
       pathname: GOALS,
     });

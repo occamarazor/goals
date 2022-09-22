@@ -1,25 +1,44 @@
 import { useCallback } from 'react';
+import useForm from 'features/form/formHooks';
 import FormField from 'features/form/FormField';
 import FormButton from 'features/form/FormButton';
+import {
+  registerFormConfig,
+  registerFormState,
+} from 'features/authentication/register/registerConstants';
+import { registerSubmit } from 'features/authentication/register/registerSlice';
 
-// TODO: register
 const RegisterBody = () => {
+  const [registerForm, registerFieldChangeHandler, registerFormSubmitHandler] = useForm(
+    registerFormState,
+    registerSubmit,
+  );
+
   const handleRegisterFormSubmit = useCallback(() => {
-    console.log('Submit register form');
-  }, []);
+    const { password, passwordConfirm } = registerForm;
+
+    if (password === passwordConfirm) {
+      registerFormSubmitHandler();
+    } else {
+      // TODO: error notification
+      console.log("Passwords don't match");
+    }
+  }, [registerForm, registerFormSubmitHandler]);
 
   return (
     <>
-      <FormField id='name' placeholder='Your name' type='text' first />
-      <FormField id='email' placeholder='example@example.com' />
-      <FormField id='password' placeholder='Your password' />
-      <FormField
-        id='passwordConfirm'
-        placeholder='Confirm password'
-        type='password'
-        label='Confirm Password'
-      />
-      <FormButton title='Sign up' handler={handleRegisterFormSubmit} />
+      {registerFormConfig.map(({ id, placeholder, type, label }) => (
+        <FormField
+          key={id}
+          id={id}
+          placeholder={placeholder}
+          type={type}
+          label={label}
+          value={registerForm[id]}
+          changeHandler={registerFieldChangeHandler}
+        />
+      ))}
+      <FormButton title='Sign up' submitHandler={handleRegisterFormSubmit} />
     </>
   );
 };
