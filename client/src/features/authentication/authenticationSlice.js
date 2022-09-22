@@ -1,12 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import REQUEST_STATUS_TYPES from 'features/common/commonConstants';
+import { getStorageItem, setStorageItem } from 'features/authentication/authenticationHelpers';
 import { AUTHENTICATION_STORAGE_KEY } from 'features/authentication/authenticationConstants';
-
-const initialUserState = JSON.parse(localStorage.getItem(AUTHENTICATION_STORAGE_KEY));
 
 const initialState = {
   status: REQUEST_STATUS_TYPES.INITIAL,
-  user: initialUserState || null,
+  user: getStorageItem(AUTHENTICATION_STORAGE_KEY) || null,
   error: '',
 };
 
@@ -19,7 +18,7 @@ const authenticationSlice = createSlice({
     },
     submitLoginSuccess: (state, { payload }) => {
       state.user = payload;
-      localStorage.setItem(AUTHENTICATION_STORAGE_KEY, JSON.stringify(payload));
+      setStorageItem(AUTHENTICATION_STORAGE_KEY, payload);
       state.status = REQUEST_STATUS_TYPES.SUCCESS;
     },
     submitLoginError: (state, { payload }) => {
@@ -30,7 +29,7 @@ const authenticationSlice = createSlice({
       state.status = REQUEST_STATUS_TYPES.INITIAL;
       state.user = null;
       state.error = '';
-      localStorage.setItem(AUTHENTICATION_STORAGE_KEY, null);
+      setStorageItem(AUTHENTICATION_STORAGE_KEY, null);
     },
   },
 });
