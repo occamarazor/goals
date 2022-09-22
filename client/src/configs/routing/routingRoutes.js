@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Navigate } from 'react-router-dom';
-import { ROOT, LOGIN, REGISTER, GOALS, COUNTER, NO_MATCH } from 'configs/routing/routingPaths';
+import { ROOT, LOGIN, REGISTER, GOALS, NO_MATCH } from 'configs/routing/routingPaths';
 import AppLoader from 'features/application/AppLoader';
 import AuthenticationLoader from 'features/authentication/AuthenticationLoader';
 
@@ -9,7 +9,6 @@ const LoginPage = lazy(() => import('pages/LoginPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const GoalsLayout = lazy(() => import('features/goals/GoalsLayout'));
 const GoalsPage = lazy(() => import('pages/GoalsPage'));
-const Counter = lazy(() => import('features/counter/Counter'));
 const NotFoundError = lazy(() => import('features/error/NotFoundError'));
 
 const errorRoute = {
@@ -58,14 +57,6 @@ export const publicRoutes = [
       },
     ],
   },
-  {
-    path: COUNTER,
-    element: (
-      <Suspense fallback={<AppLoader />}>
-        <Counter />
-      </Suspense>
-    ),
-  },
   errorRoute,
 ];
 
@@ -95,14 +86,6 @@ export const privateRoutes = [
         ),
       },
     ],
-  },
-  {
-    path: COUNTER,
-    element: (
-      <Suspense fallback={<AppLoader />}>
-        <Counter />
-      </Suspense>
-    ),
   },
   errorRoute,
 ];
