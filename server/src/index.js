@@ -1,10 +1,10 @@
 import { config } from 'dotenv';
 import express, { json, urlencoded } from 'express';
 import cors from 'cors';
+import usersRoutes from './features/users/usersRoutes.js';
+import goalsRoutes from './features/goals/goalsRoutes.js';
 import connectDB from './configs/db.js';
 import errorHandler from './middleware/error.js';
-import usersRoutes from './routes/users.js';
-import goalsRoutes from './routes/goals.js';
 
 config();
 connectDB();

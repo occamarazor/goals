@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import protect from '../middleware/auth.js';
-import { getGoals, deleteGoals, createGoal, updateGoal, deleteGoal } from '../controllers/goals.js';
+import protect from '../../middleware/auth.js';
+import { getGoals, deleteGoals, createGoal, updateGoal, deleteGoal } from './goalsController.js';
 
 const goalsRoutes = Router();
 

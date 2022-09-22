@@ -6,7 +6,7 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:node/recommended",
+    "plugin:node/recommended-module",
     "airbnb-base",
     "plugin:prettier/recommended"
   ],
@@ -14,7 +14,15 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["node", "jest", "jsdoc"],
+  "plugins": ["jest", "jsdoc"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js"],
+        "moduleDirectory": ["node_modules", "src"]
+      }
+    }
+  },
   "rules": {
     "import/extensions": [
       "error",

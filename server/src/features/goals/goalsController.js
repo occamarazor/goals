@@ -1,5 +1,5 @@
 import asyncHandler from 'express-async-handler';
-import GoalModel from '../models/goal.js';
+import GoalModel from './goalModel.js';
 
 const GOAL_MODEL_FILTER = 'id user text duration createdAt updatedAt';
 

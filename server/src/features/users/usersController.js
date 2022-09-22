@@ -1,7 +1,7 @@
 import asyncHandler from 'express-async-handler';
 import bcrypt from 'bcryptjs';
-import generateToken from '../configs/jwt.js';
-import UserModel from '../models/user.js';
+import generateToken from '../../configs/jwt.js';
+import UserModel from './userModel.js';
 
 const GOAL_MODEL_FILTER = 'id name email createdAt updatedAt';
 

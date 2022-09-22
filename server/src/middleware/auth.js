@@ -1,6 +1,6 @@
 import asyncHandler from 'express-async-handler';
 import jwt from 'jsonwebtoken';
-import UserModel from '../models/user.js';
+import UserModel from '../features/users/userModel.js';
 
 const protect = asyncHandler(async (req, res, next) => {
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
