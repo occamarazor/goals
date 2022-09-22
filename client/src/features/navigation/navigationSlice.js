@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import NAVIGATION_SLICE_NAME from 'features/navigation/navigationConstants';
 
 const initialState = {
   menuOpen: false,
 };
 
 const navigationSlice = createSlice({
-  name: 'navigation',
+  name: [NAVIGATION_SLICE_NAME],
   initialState,
   reducers: {
     setMenuOpen: (state, { payload }) => {

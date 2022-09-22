@@ -1,12 +1,10 @@
 import { combineReducers } from '@reduxjs/toolkit';
+import NAVIGATION_SLICE_NAME from 'features/navigation/navigationConstants';
 import { AUTHENTICATION_SLICE_NAME } from 'features/authentication/authenticationConstants';
-import counterReducer from 'features/counter/counterSlice';
 import navigationSlice from 'features/navigation/navigationSlice';
 import authenticationSlice from 'features/authentication/authenticationSlice';
 
-// TODO: dynamic slice names
 export default combineReducers({
-  navigation: navigationSlice,
+  [NAVIGATION_SLICE_NAME]: navigationSlice,
   [AUTHENTICATION_SLICE_NAME]: authenticationSlice,
-  counter: counterReducer,
 });
