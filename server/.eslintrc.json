@@ -15,14 +15,6 @@
     "sourceType": "module"
   },
   "plugins": ["jest", "jsdoc"],
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".js"],
-        "moduleDirectory": ["node_modules", "src"]
-      }
-    }
-  },
   "rules": {
     "import/extensions": [
       "error",
