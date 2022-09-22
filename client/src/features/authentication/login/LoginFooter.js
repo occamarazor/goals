@@ -2,7 +2,7 @@ import { REGISTER } from 'configs/routing/routingPaths';
 import { useNavigationHandler } from 'features/navigation/navigationHooks';
 import FormFooter from 'features/form/FormFooter';
 
-const AuthenticationLoginFooter = () => {
+const LoginFooter = () => {
   const handleRegisterNavigate = useNavigationHandler(REGISTER);
 
   return (
@@ -14,4 +14,4 @@ const AuthenticationLoginFooter = () => {
   );
 };
 
-export default AuthenticationLoginFooter;
+export default LoginFooter;

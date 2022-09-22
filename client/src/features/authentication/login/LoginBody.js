@@ -1,13 +1,13 @@
 import useForm from 'features/form/formHooks';
 import FormField from 'features/form/FormField';
 import FormButton from 'features/form/FormButton';
-import { loginFormConfig, loginFormState } from 'features/authentication/authenticationConstants';
-import { submitLogin } from 'features/authentication/authenticationSlice';
+import { loginFormConfig, loginFormState } from 'features/authentication/login/loginConstants';
+import { loginSubmit } from 'features/authentication/login/loginSlice';
 
-const AuthenticationLoginBody = () => {
+const LoginBody = () => {
   const [loginForm, loginFieldChangeHandler, loginFormSubmitHandler] = useForm(
     loginFormState,
-    submitLogin,
+    loginSubmit,
   );
 
   return (
@@ -27,4 +27,4 @@ const AuthenticationLoginBody = () => {
   );
 };
 
-export default AuthenticationLoginBody;
+export default LoginBody;

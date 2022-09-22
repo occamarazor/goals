@@ -5,7 +5,7 @@ import AppLoader from 'features/application/AppLoader';
 import AuthenticationLoader from 'features/authentication/AuthenticationLoader';
 
 const AuthenticationLayout = lazy(() => import('features/authentication/AuthenticationLayout'));
-const AuthenticationLogin = lazy(() => import('pages/AuthenticationLogin'));
+const LoginPage = lazy(() => import('pages/LoginPage'));
 const AuthenticationRegister = lazy(() => import('pages/AuthenticationRegister'));
 const GoalsLayout = lazy(() => import('features/goals/GoalsLayout'));
 const GoalsPage = lazy(() => import('pages/GoalsPage'));
@@ -44,7 +44,7 @@ export const publicRoutes = [
         path: LOGIN,
         element: (
           <Suspense fallback={<AuthenticationLoader />}>
-            <AuthenticationLogin />
+            <LoginPage />
           </Suspense>
         ),
       },

@@ -3,6 +3,7 @@ import AuthenticationRegisterHeader from 'features/authentication/Authentication
 import AuthenticationRegisterBody from 'features/authentication/AuthenticationRegisterBody';
 import AuthenticationRegisterFooter from 'features/authentication/AuthenticationRegisterFooter';
 
+// TODO: move feature
 const AuthenticationRegister = () => {
   const header = <AuthenticationRegisterHeader />;
   const body = <AuthenticationRegisterBody />;

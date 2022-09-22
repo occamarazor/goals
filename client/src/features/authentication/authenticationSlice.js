@@ -1,42 +1,36 @@
 import { createSlice } from '@reduxjs/toolkit';
 import REQUEST_STATUS_TYPES from 'features/common/commonConstants';
+import {
+  AUTHENTICATION_SLICE_NAME,
+  AUTHENTICATION_STORAGE_KEY,
+} from 'features/authentication/authenticationConstants';
 import { getStorageItem, setStorageItem } from 'features/authentication/authenticationHelpers';
-import { AUTHENTICATION_STORAGE_KEY } from 'features/authentication/authenticationConstants';
+import { LOGIN_SLICE_NAME } from 'features/authentication/login/loginConstants';
+import loginReducers, { loginState } from 'features/authentication/login/loginSlice';
 
 const initialState = {
-  status: REQUEST_STATUS_TYPES.INITIAL,
   user: getStorageItem(AUTHENTICATION_STORAGE_KEY) || null,
-  error: '',
+  ...loginState,
 };
 
 const authenticationSlice = createSlice({
-  name: 'authentication',
+  name: AUTHENTICATION_SLICE_NAME,
   initialState,
   reducers: {
-    submitLogin: (state) => {
-      state.status = REQUEST_STATUS_TYPES.LOADING;
-    },
-    submitLoginSuccess: (state, { payload }) => {
-      state.user = payload;
-      setStorageItem(AUTHENTICATION_STORAGE_KEY, payload);
-      state.status = REQUEST_STATUS_TYPES.SUCCESS;
-    },
-    submitLoginError: (state, { payload }) => {
-      state.error = payload;
-      state.status = REQUEST_STATUS_TYPES.ERROR;
-    },
-    submitLogout: (state) => {
-      state.status = REQUEST_STATUS_TYPES.INITIAL;
+    logoutSubmit: (state) => {
       state.user = null;
-      state.error = '';
+      state[LOGIN_SLICE_NAME].status = REQUEST_STATUS_TYPES.INITIAL;
+      state[LOGIN_SLICE_NAME].error = '';
       setStorageItem(AUTHENTICATION_STORAGE_KEY, null);
     },
   },
+  extraReducers: (builder) => {
+    loginReducers(builder);
+  },
 });
 
-export const { submitLogin, submitLoginSuccess, submitLoginError, submitLogout } =
-  authenticationSlice.actions;
+export const { logoutSubmit } = authenticationSlice.actions;
 
-export const selectAuthentication = (state) => state.authentication;
+export const selectAuthentication = (state) => state[AUTHENTICATION_SLICE_NAME];
 
 export default authenticationSlice.reducer;

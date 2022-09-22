@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import user from 'assets/user.png';
 import { LOGIN } from 'configs/routing/routingPaths';
-import { submitLogout } from 'features/authentication/authenticationSlice';
+import { logoutSubmit } from 'features/authentication/authenticationSlice';
 import { useNavigationHandler, useNavigationMenu } from 'features/navigation/navigationHooks';
 
 const NavigationMenu = () => {
@@ -19,7 +19,7 @@ const NavigationMenu = () => {
     if (menuOpen) {
       handleMenuClose();
     }
-    dispatch(submitLogout());
+    dispatch(logoutSubmit());
     handleLoginNavigate();
   }, [dispatch, menuOpen, handleMenuClose, handleLoginNavigate]);
 
