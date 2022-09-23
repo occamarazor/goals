@@ -10,6 +10,12 @@
 yarn -i
 ```
 
+### Run client & server concurrently
+
+```
+yarn start
+```
+
 ### Server
 
 #### Change directory to server
