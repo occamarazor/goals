@@ -4,12 +4,15 @@ import { Provider } from 'react-redux';
 import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import reportWebVitals from 'reportWebVitals';
 import store from 'store';
+import { injectStore } from 'configs/api/api';
 import history from 'configs/routing/routingHistory';
 import App from 'features/application/App';
 import 'index.css';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
+
+injectStore(store);
 
 root.render(
   <StrictMode>

@@ -1,11 +1,11 @@
 import FormLayout from 'features/form/FormLayout';
-import GoalsHeader from 'features/goals/GoalsHeader';
-import GoalsBody from 'features/goals/GoalsBody';
+import GoalsFormHeader from 'features/goals/form/GoalsFormHeader';
+import GoalsFormBody from 'features/goals/form/GoalsFormBody';
 import GoalsList from 'features/goals/GoalsList';
 
 const GoalsPage = () => {
-  const header = <GoalsHeader />;
-  const body = <GoalsBody />;
+  const header = <GoalsFormHeader />;
+  const body = <GoalsFormBody />;
 
   return (
     <>
