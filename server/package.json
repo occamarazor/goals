@@ -11,7 +11,7 @@
     "node": ">=16.17.0 <18"
   },
   "scripts": {
-    "lint": "eslint . --fix --max-warnings=4",
+    "lint": "eslint . --fix --max-warnings=0",
     "format": "prettier . --write",
     "start": "nodemon index.js"
   },

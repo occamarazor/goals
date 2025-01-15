@@ -6,19 +6,17 @@ import { GOALS_FORM_SLICE_NAME, GOALS_FORM_MODES } from 'features/goals/form/goa
 export const goalsFormState = {
   [GOALS_FORM_SLICE_NAME]: {
     status: REQUEST_STATUS_TYPES.INITIAL,
-    mode: GOALS_FORM_MODES.CREATE,
     error: '',
+    mode: GOALS_FORM_MODES.CREATE,
   },
 };
 
-export const goalsFormSubmit = createAction(
-  `${GOALS_SLICE_NAME}/${GOALS_FORM_SLICE_NAME}/formSubmit`,
-);
+export const goalsFormSubmit = createAction(`${GOALS_SLICE_NAME}/${GOALS_FORM_SLICE_NAME}/submit`);
 export const goalsFormSubmitSuccess = createAction(
-  `${GOALS_SLICE_NAME}/${GOALS_FORM_SLICE_NAME}/formSubmitSuccess`,
+  `${GOALS_SLICE_NAME}/${GOALS_FORM_SLICE_NAME}/submitSuccess`,
 );
 export const goalsFormSubmitError = createAction(
-  `${GOALS_SLICE_NAME}/${GOALS_FORM_SLICE_NAME}/formSubmitError`,
+  `${GOALS_SLICE_NAME}/${GOALS_FORM_SLICE_NAME}/submitError`,
 );
 
 const goalsFormReducers = (builder) => {
@@ -26,9 +24,7 @@ const goalsFormReducers = (builder) => {
     .addCase(goalsFormSubmit, (state) => {
       state[GOALS_FORM_SLICE_NAME].status = REQUEST_STATUS_TYPES.LOADING;
     })
-    .addCase(goalsFormSubmitSuccess, (state, { payload }) => {
-      // TODO: goal
-      state.goal = payload;
+    .addCase(goalsFormSubmitSuccess, (state) => {
       state[GOALS_FORM_SLICE_NAME].status = REQUEST_STATUS_TYPES.SUCCESS;
     })
     .addCase(goalsFormSubmitError, (state, { payload }) => {
@@ -36,5 +32,7 @@ const goalsFormReducers = (builder) => {
       state[GOALS_FORM_SLICE_NAME].status = REQUEST_STATUS_TYPES.ERROR;
     });
 };
+
+export const selectGoalsForm = (state) => state[GOALS_SLICE_NAME][GOALS_FORM_SLICE_NAME];
 
 export default goalsFormReducers;

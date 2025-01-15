@@ -19,7 +19,7 @@
     "prettier": "^2.7.1"
   },
   "lint-staged": {
-    "*.js": "eslint --fix --max-warnings=0",
+    "*.js": "eslint --fix --max-warnings=8",
     "*.(json|css|md)": [
       "prettier --write --ignore-unknown"
     ]

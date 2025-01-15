@@ -14,14 +14,12 @@ export const loginState = {
   },
 };
 
-export const loginSubmit = createAction(
-  `${AUTHENTICATION_SLICE_NAME}/${LOGIN_SLICE_NAME}/loginSubmit`,
-);
+export const loginSubmit = createAction(`${AUTHENTICATION_SLICE_NAME}/${LOGIN_SLICE_NAME}/submit`);
 export const loginSubmitSuccess = createAction(
-  `${AUTHENTICATION_SLICE_NAME}/${LOGIN_SLICE_NAME}/loginSubmitSuccess`,
+  `${AUTHENTICATION_SLICE_NAME}/${LOGIN_SLICE_NAME}/submitSuccess`,
 );
 export const loginSubmitError = createAction(
-  `${AUTHENTICATION_SLICE_NAME}/${LOGIN_SLICE_NAME}/loginSubmitError`,
+  `${AUTHENTICATION_SLICE_NAME}/${LOGIN_SLICE_NAME}/submitError`,
 );
 
 const loginReducers = (builder) => {

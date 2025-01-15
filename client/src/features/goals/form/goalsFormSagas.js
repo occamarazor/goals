@@ -1,4 +1,5 @@
 import { call, put, takeLatest, fork } from 'redux-saga/effects';
+import { goalsListSubmit } from 'features/goals/list/goalsListSlice';
 import {
   goalsFormSubmit,
   goalsFormSubmitSuccess,
@@ -11,10 +12,11 @@ export function* goalsFormSubmitWorker({ payload }) {
   try {
     const goal = yield call(goalsFormSubmitAdapter, payload);
     const {
-      data: { data, message },
+      data: { message },
     } = yield call(goalsFormSubmitApi, goal);
 
-    yield put(goalsFormSubmitSuccess(data));
+    yield put(goalsFormSubmitSuccess());
+    yield put(goalsListSubmit());
 
     // TODO: success notification
     console.log('message:', message);

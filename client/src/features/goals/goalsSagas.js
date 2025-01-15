@@ -1,5 +1,6 @@
 import goalsFormSagas from 'features/goals/form/goalsFormSagas';
+import goalsListSagas from 'features/goals/list/goalsListSagas';
 
-const goalsSagas = [...goalsFormSagas];
+const goalsSagas = [...goalsListSagas, ...goalsFormSagas];
 
 export default goalsSagas;

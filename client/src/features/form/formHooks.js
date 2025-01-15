@@ -1,9 +1,15 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-const useForm = (initialState, submitAction) => {
+const useForm = (initialState, submitAction, resetCondition) => {
   const dispatch = useDispatch();
   const [form, setForm] = useState(initialState);
+
+  useEffect(() => {
+    if (resetCondition) {
+      setForm(initialState);
+    }
+  }, [setForm, initialState, resetCondition]);
 
   const handleFieldChange = useCallback(
     (event) => {

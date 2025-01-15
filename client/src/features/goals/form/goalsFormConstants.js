@@ -7,14 +7,20 @@ export const GOALS_FORM_URL = GOALS_URL;
 
 export const goalsFormConfig = [
   {
-    id: 'title',
-    placeholder: 'Goal text',
+    id: 'text',
+    placeholder: 'Goal title',
     type: 'text',
     value: '',
   },
   {
     id: 'time',
     placeholder: 'Goal duration',
+    type: 'time',
+    value: '',
+  },
+  {
+    id: 'note',
+    placeholder: 'Goal description',
     type: 'text',
     value: '',
   },

@@ -1,14 +1,10 @@
-import useForm from 'features/form/formHooks';
 import FormField from 'features/form/FormField';
 import FormButton from 'features/form/FormButton';
-import { goalsFormConfig, goalsFormState } from 'features/goals/form/goalsFormConstants';
-import { goalsFormSubmit } from 'features/goals/form/goalsFormSlice';
+import { goalsFormConfig } from 'features/goals/form/goalsFormConstants';
+import useGoalsFormSubmit from 'features/goals/form/goalsFormHooks';
 
 const GoalsFormBody = () => {
-  const [goalsForm, goalsFieldChangeHandler, goalsFormSubmitHandler] = useForm(
-    goalsFormState,
-    goalsFormSubmit,
-  );
+  const [goalsForm, goalsFieldChangeHandler, goalsFormSubmitHandler] = useGoalsFormSubmit();
 
   return (
     <>

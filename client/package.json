@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "lint": "eslint . --fix --max-warnings=7",
+    "lint": "eslint . --fix --max-warnings=0",
     "format": "prettier . --write",
     "start": "react-scripts start",
     "build": "react-scripts build",

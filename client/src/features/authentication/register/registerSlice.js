@@ -15,13 +15,13 @@ export const registerState = {
 };
 
 export const registerSubmit = createAction(
-  `${AUTHENTICATION_SLICE_NAME}/${REGISTER_SLICE_NAME}/registerSubmit`,
+  `${AUTHENTICATION_SLICE_NAME}/${REGISTER_SLICE_NAME}/submit`,
 );
 export const registerSubmitSuccess = createAction(
-  `${AUTHENTICATION_SLICE_NAME}/${REGISTER_SLICE_NAME}/registerSubmitSuccess`,
+  `${AUTHENTICATION_SLICE_NAME}/${REGISTER_SLICE_NAME}/submitSuccess`,
 );
 export const registerSubmitError = createAction(
-  `${AUTHENTICATION_SLICE_NAME}/${REGISTER_SLICE_NAME}/registerSubmitError`,
+  `${AUTHENTICATION_SLICE_NAME}/${REGISTER_SLICE_NAME}/submitError`,
 );
 
 const registerReducers = (builder) => {
