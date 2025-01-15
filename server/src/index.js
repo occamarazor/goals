@@ -33,4 +33,4 @@ app.use('/api/users', usersRoutes);
 app.use('/api/goals', goalsRoutes);
 app.use(errorHandler);
 
-app.listen(PORT);
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
