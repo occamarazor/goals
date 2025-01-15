@@ -6,6 +6,16 @@ import goalsRoutes from './features/goals/goalsRoutes.js';
 import connectDB from './configs/db.js';
 import errorHandler from './middleware/error.js';
 
+// TODO:
+//  0. Error boundaries
+//  1. Notifications
+//  2. Form validation
+//  3. Proper monorepo (yarn/lerna/nx)
+//  4. Unit testing
+//  5. Authentication provider?
+//  6. Some animation
+//  7. Deploy
+
 config();
 connectDB();
 
@@ -23,4 +33,4 @@ app.use('/api/users', usersRoutes);
 app.use('/api/goals', goalsRoutes);
 app.use(errorHandler);
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT);
